@@ -10,7 +10,7 @@ class NavButton extends Component {
 
     render() {
         return (
-            <Button onClick={this.handleClick}>{this.props.name}</Button>
+            <Button variant="outlined" color="primary" onClick={this.handleClick}>{this.props.name}</Button>
         );
     }
 }

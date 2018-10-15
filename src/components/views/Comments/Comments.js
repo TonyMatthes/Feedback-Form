@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import TextField from '@material-ui/core/TextField'
-import NavButton from '../../structural-components/NavButton/NavButton'
+import TextField from '@material-ui/core/TextField';
+import NavButton from '../../structural-components/NavButton/NavButton';
+import Button from '@material-ui/core/Button'
 
 class Comments extends Component {
   state = {
@@ -25,7 +26,7 @@ class Comments extends Component {
           margin="normal"
         />
               <NavButton name="Back" path="/3" />
-              <NavButton name="Submit" path="/5" />
+              <Button>Submit</Button>
 
       </div>
     );

@@ -6,6 +6,22 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: '#00ACB0',
+        },
+        secondary: {
+            main: '#ff9100',
+        },
+    },
+    typography: {
+        useNextVariants: true,
+      },
+});
 
 const feedbackForm = (state = {}, action) => {
     switch (action.type) {
@@ -29,5 +45,5 @@ const store = createStore(
     applyMiddleware(logger)
 )
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><MuiThemeProvider theme={theme}><App /></MuiThemeProvider></Provider>, document.getElementById('root'));
 registerServiceWorker();
