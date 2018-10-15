@@ -14,7 +14,7 @@ class Selector extends Component {
         this.setState({
             rating: event.target.value
         })
-        this.props.dispatch({ type: this.props.dispatcher, payload: event.target.value });
+        this.props.dispatch({ type: this.props.dispatcher, payload: Number(event.target.value) });
 
     }
     render() {

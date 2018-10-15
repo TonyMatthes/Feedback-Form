@@ -17,10 +17,9 @@ router.get('/', function (req, res) {
 
 // POST Route
 router.post('/', (req, res) => {
-    const post = req.body
     pool.query(`INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
                 VALUES ($1, $2, $3, $4);`, 
-                [post.feeling, post.understanding, post.understanding, post.support, post.comments])
+                [req.body.feeling, req.body.understanding, req.body.supported, req.body.comments])
         .then(() => {
             res.sendStatus(200);
         })

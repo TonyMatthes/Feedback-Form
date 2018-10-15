@@ -5,11 +5,11 @@ import NavButton from '../../structural-components/NavButton/NavButton';
 class Feeling extends Component {
   render() {
     return (
-    <div>
-    <span>Feeling</span>
-    <Selector dispatcher="FEELING"></Selector>
-    <NavButton name="next" path="/2" />
-    </div>
+      <div>
+        <span>How are you feeling today?</span>
+        <Selector dispatcher="FEELING"></Selector>
+        <NavButton name="next" path="/2" />
+      </div>
     );
   }
 }
