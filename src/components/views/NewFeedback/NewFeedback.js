@@ -5,8 +5,8 @@ class NewFeedback extends Component {
   render() {
     return (
       <div>
-        <span>New Feedback</span>
-        <NavButton name="New Feedback" path="/" />
+        <h3>Thank You</h3>
+        <NavButton name="Leave New Feedback" path="/" />
       </div>
     );
   }

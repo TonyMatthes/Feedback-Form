@@ -10,9 +10,7 @@ class Header extends Component {
       <div>
         <AppBar position="static" color="primary">
           <Toolbar>
-            <Typography variant="h6" color="contrastText">
-              Feedback!
-          </Typography>
+<h1>Feedback!</h1>
           </Toolbar>
         </AppBar>
       </div>

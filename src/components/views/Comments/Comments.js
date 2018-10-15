@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios'
 import NavButton from '../../structural-components/NavButton/NavButton';
@@ -9,6 +10,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Paper from '@material-ui/core/Paper'
 
 
 class Comments extends Component {
@@ -39,17 +41,18 @@ class Comments extends Component {
       url: '/feedback',
       data: this.props
     }).then(() => {
-      alert('post successful!')
+      this.props.history.push('/5')
     }).catch(error => {
       console.log('Error in POST:', error);
     });
+
   }
 
   render() {
     return (
-      <div>
-        <pre>{JSON.stringify(this.props)}</pre>
-
+      <Paper>
+        <h3>Is there anything else you'd like us to know?</h3>
+        <NavButton name="Back" path="/3" />
         <TextField
           label="Any Comments?"
           multiline
@@ -58,37 +61,33 @@ class Comments extends Component {
           onChange={this.handleChange()}
           margin="normal"
         />
-
-        <NavButton name="Back" path="/3" />
-        <div>
-          <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>Submit</Button>
-          <Dialog
-            open={this.state.open}
-            onClose={this.handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-          >
-            <DialogTitle id="alert-dialog-title">{"Are You Sure?"}</DialogTitle>
-            <DialogContent>
-              <DialogContentText id="alert-dialog-description">
-Would you like to submit? Or is there something you'd like to change?
+        <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>Submit</Button>
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"Are You Sure?"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Would you like to submit? Or is there something you'd like to change?
             </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={this.handleClose} color="primary">
-                Go Back and Change
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              Go Back and Change
             </Button>
-              <Button onClick={this.postFeedback} color="primary" autoFocus>
-                Submit
+            <Button onClick={this.postFeedback} color="primary" autoFocus>
+              Submit
             </Button>
-            </DialogActions>
-          </Dialog>
-        </div>
-      </div>
+          </DialogActions>
+        </Dialog>
+      </Paper>
     );
   }
 }
 
 const mapReduxStateToProps = reduxState => reduxState
 
-export default connect(mapReduxStateToProps)(Comments);
+export default withRouter(connect(mapReduxStateToProps)(Comments));

@@ -22,6 +22,7 @@ class Selector extends Component {
             <FormControl>
                 <FormLabel component="legend">Rate:</FormLabel>
                 <RadioGroup
+                    row="true"
                     aria-label="Rating"
                     name="rating"
                     value={this.state.rating}
