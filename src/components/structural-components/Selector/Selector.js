@@ -13,8 +13,8 @@ class Selector extends Component {
     handleChange =()=> event => {
         this.setState({
             rating: event.target.value
-        });
-        this.props.dispatch({ type: this.props.dispatcher, payload: this.state.rating });
+        })
+        this.props.dispatch({ type: this.props.dispatcher, payload: event.target.value });
 
     }
     render() {
@@ -25,7 +25,7 @@ class Selector extends Component {
                     aria-label="Rating"
                     name="rating"
                     value={this.state.rating}
-                    onChange={this.handleChange('rating')}
+                    onChange={this.handleChange()}
                 >
                     <FormControlLabel value="1" control={<Radio />} label="1" />
                     <FormControlLabel value="2" control={<Radio />} label="2" />
@@ -38,6 +38,6 @@ class Selector extends Component {
     }
 }
 
-const mapReduxStateToProps= reduxState => reduxState
+const mapReduxStateToProps = reduxState => reduxState
 
 export default connect (mapReduxStateToProps) (Selector);

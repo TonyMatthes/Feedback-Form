@@ -17,7 +17,7 @@ const feedbackForm = (state = {}, action) => {
             return { ...state, supported: action.payload };
         case 'COMMENTS':
             return { ...state, comments: action.payload };
-        case 'RESET':
+        case 'CLEAR':
             return {};
         default:
             return state;

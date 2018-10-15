@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import Selector from '../../structural-components/Selector/Selector'
+import NavButton from '../../structural-components/NavButton/NavButton';
 
 class Supported extends Component {
   render() {
     return (
-    <span>Supported</span>
+      <div>
+      <span>Supported</span>
+      <Selector dispatcher="SUPPORTED"></Selector>
+      <NavButton name="next" path="/4" />
+      <NavButton name="back" path="/2" />
+      </div>
     );
   }
 }
